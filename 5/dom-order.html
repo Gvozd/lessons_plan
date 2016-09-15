@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script>
+	console.log(document.documentElement); // HTML...
+	console.log(document.body);// null
+	document.addEventListener('DOMContentLoaded', function() {
+		// этот код выполнится после того, как документ полностью загрузится
+		// также это подразумевает, что все синхронные скрипты загрузились и выполнились
+		// но не картинки и стили
+		console.log('loaded', document.documentElement); // HTML...
+		console.log('loaded', document.body);// body...
+		console.log('loaded', document.body.children);// [div, script, div, script]
+	});
+	</script>
+</head>
+<body>
+	<div>first</div>
+	<script>
+	console.log(document.body);// body...
+	console.log(document.body.children);// [div, script]
+	</script>
+	<div>second</div>
+	<script>
+	console.log(document.body.children);// [div, script, div, script]
+	</script>
+</body>
+</html>
